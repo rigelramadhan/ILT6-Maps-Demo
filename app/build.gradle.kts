@@ -15,8 +15,15 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val apiKey = property("API_KEY") as String
+        require(apiKey.isNotEmpty()) {
+            "API_KEY is needed in local.properties"
+        }
+        buildConfigField("String", "API_KEY", apiKey)
     }
     buildFeatures {
+        android.buildFeatures.buildConfig = true
         viewBinding = true
     }
     buildTypes {
@@ -27,6 +34,7 @@ android {
                 "proguard-rules.pro"
             )
         }
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -48,4 +56,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.android.libraries.places:places:3.4.0")
 }

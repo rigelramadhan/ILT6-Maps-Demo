@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ILT6</string>
     <string name="button_sample_location">Sample Location</string>
+    <string name="get_nearby">Get Nearby</string>
 </resources>
